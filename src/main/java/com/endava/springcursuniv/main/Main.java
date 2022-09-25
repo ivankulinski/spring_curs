@@ -1,22 +1,20 @@
 package com.endava.springcursuniv.main;
 
-import com.endava.springcursuniv.models.AutomaticTransmission;
+import com.endava.springcursuniv.configuration.Config;
 import com.endava.springcursuniv.models.Car;
-import com.endava.springcursuniv.models.ManualTransmission;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     
     public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         
-        //Objects are manually instantiated
-        Car car  = new Car();
-        AutomaticTransmission automaticTransmission = new AutomaticTransmission();
-        ManualTransmission manualTransmission = new ManualTransmission();
-        
-        //Manual injection
-        car.setTransmission(automaticTransmission);
+        //Now we get the bean from the Spring Context / Container
+        Car car = context.getBean(Car.class);
         
         car.start();
+        
     }
     
 }

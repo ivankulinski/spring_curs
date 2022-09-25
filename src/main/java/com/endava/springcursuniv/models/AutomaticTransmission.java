@@ -6,7 +6,7 @@ public class AutomaticTransmission implements Transmission {
     
     @Override
     public String shiftGear() {
-        return "Manual transmission installed.";
+        return "Automatic transmission installed.";
     }
     
     public String getType() {
