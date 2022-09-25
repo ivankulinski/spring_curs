@@ -1,12 +1,15 @@
 package com.endava.springcursuniv.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class AutomaticTransmission implements Transmission {
     
     private String type;
     
     @Override
     public String shiftGear() {
-        return "Manual transmission installed.";
+        return "Automatic transmission installed.";
     }
     
     public String getType() {

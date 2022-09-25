@@ -1,5 +1,9 @@
 package com.endava.springcursuniv.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
+//We may as well provide another bean name.
 public class ManualTransmission implements Transmission {
     
     private int numberGears;

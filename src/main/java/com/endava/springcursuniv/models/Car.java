@@ -1,13 +1,21 @@
 package com.endava.springcursuniv.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Car {
-    
-    private Transmission transmission;
-    
     
     public Transmission getTransmission() {
         return transmission;
     }
+    
+    @Autowired
+    @Qualifier("manualTransmission")
+    //We need @Qualifier annotation in order to specify exactly what Transmission bean should be wired.
+    //Otherwise Spring identifies 2 potential beans for autowiring. It creates ambiguity and triggers UniqueBeanDefinitionException.
+    private Transmission transmission;
     
     public void setTransmission(Transmission transmission) {
         this.transmission = transmission;
