@@ -2,19 +2,26 @@ package com.endava.springcursuniv.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
 @Component
-//@Scope("prototype")
+@PropertySource(value = "classpath:application.properties")
 public class Car {
 
+    @Value("${car.config.model}")
+    private String model;
+
+    @Value("${car.config.year}")
+    private int year;
+    
     private Transmission transmission;
     
     @Autowired
-    public Car(@Qualifier("manualTransmission") Transmission transmission) {
+    public Car(@Qualifier("automaticTransmission") Transmission transmission) {
         this.transmission = transmission;
     }
     
@@ -35,5 +42,11 @@ public class Car {
     public Transmission getTransmission() {
         return transmission;
     }
-
+    
+    @Override
+    public String toString() {
+        return "Car {" +
+                "model='" + model + '\'' +
+                ", year=" + year + '}';
+    }
 }
