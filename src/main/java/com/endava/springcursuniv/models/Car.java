@@ -11,12 +11,10 @@ public class Car {
         return transmission;
     }
     
-    @Autowired
-    @Qualifier("manualTransmission")
-    //We need @Qualifier annotation in order to specify exactly what Transmission bean should be wired.
-    //Otherwise Spring identifies 2 potential beans for autowiring. It creates ambiguity and triggers UniqueBeanDefinitionException.
     private Transmission transmission;
     
+    @Autowired
+    @Qualifier("automatic")
     public void setTransmission(Transmission transmission) {
         this.transmission = transmission;
     }

@@ -2,7 +2,7 @@ package com.endava.springcursuniv.models;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("automatic")
 public class AutomaticTransmission implements Transmission {
     
     private String type;
