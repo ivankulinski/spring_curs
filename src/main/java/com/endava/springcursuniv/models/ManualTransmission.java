@@ -1,9 +1,10 @@
 package com.endava.springcursuniv.models;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-//We may as well provide another bean name.
+@Scope("prototype")
 public class ManualTransmission implements Transmission {
     
     private int numberGears;

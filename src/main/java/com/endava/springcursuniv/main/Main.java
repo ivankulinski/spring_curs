@@ -10,10 +10,13 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         
-        //Now we get the bean from the Spring Context / Container
-        Car car = context.getBean(Car.class);
-        
+        Car car = (Car) context.getBean("car");
+        Car car2 = (Car) context.getBean("car");
         car.start();
+        car2.start();
+    
+        System.out.println("Car 1: \n" + car + "\n Hashcode: " + car.hashCode());
+        System.out.println("Car 2: \n" + car2 + "\n Hashcode: " + car2.hashCode());
         
     }
     
