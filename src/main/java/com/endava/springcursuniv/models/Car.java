@@ -14,7 +14,10 @@ public class Car {
     private Transmission transmission;
     
     @Autowired
-    @Qualifier("automatic")
+    public Car(@Qualifier("manualTransmission") Transmission transmission) {
+        this.transmission = transmission;
+    }
+    
     public void setTransmission(Transmission transmission) {
         this.transmission = transmission;
     }
