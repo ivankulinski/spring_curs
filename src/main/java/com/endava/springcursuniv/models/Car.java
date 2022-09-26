@@ -7,19 +7,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class Car {
     
-    public Transmission getTransmission() {
-        return transmission;
-    }
-    
-    private Transmission transmission;
-    
     @Autowired
-    public Car(@Qualifier("manualTransmission") Transmission transmission) {
-        this.transmission = transmission;
-    }
+    @Qualifier("automatic")
+    private Transmission transmission;
     
     public void setTransmission(Transmission transmission) {
         this.transmission = transmission;
+    }
+    
+    public Transmission getTransmission() {
+        return transmission;
     }
     
     public void start() {
